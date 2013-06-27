@@ -1,0 +1,32 @@
+MAST Alpha 0.04
+
+-Fixed a minor bug in timeDomainData plotting (error when tdd.sourceFilename was empty)
+-For unavoidable failures of "determinant too small" in mgcep (i.e. adjusting -e and -f doesn't work), 
+added a feature where MAST tries MGC extraction at a higher order, then, if successful converts those 
+coefficients to the original target order.
+-Added properties to sptk class for using the "-e" and "-f" options in mgcep (through sptk.extractMgc), 
+sptk.mgcPeriodogramOffset and sptk.mgcMinimumDeterminant, respectively.
+
+
+
+MAST Alpha 0.03
+-Renamed pitch extraction functions to be correctly named according to algorithm
+	|=> renamed sptk.extractPitchHTS() to sptk.extractPitchGetF0()
+	|=> added sptk.extractPitchRAPT()
+	*These functions both use the RAPT algorithm, but different implementations.
+	sptk.extractPitchGetF0 requires the getf0.tcl script, which can be found e.g. in the HTS training scripts
+-Added the option to use a specified voiced/unvoiced threshold in sptk.extractPitchSWIPE()
+The value is stored in sptk.thresholdSWIPE with the default of 0.3
+-Added "Speak Aloud" feature, which displays the calls made to the system in the MATLAB command window. Set sptk.speakAloud to 1 to enable.
+
+
+
+MAST Alpha 0.02
+-Fixed isPrecision not being found in freqDomainData and mgcData (Thanks Alexis!)
+-Fixed the error in plot titles due to improper referencing of the cell array. Titles now display the last element of the sourceFilename array recursively. (Thanks Alexis!)
+-Turned off the LaTeX interpreter in plot titles to fix display of filenames with underscores.
+
+
+
+MAST Alpha 0.01
+-First release!
